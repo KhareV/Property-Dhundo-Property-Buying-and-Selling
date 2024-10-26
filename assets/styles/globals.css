@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Windmill Spinner Styles */
+.windmill-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  margin: 20px 0;
+}
+
+.fancy-windmill {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  animation: spin 4s linear infinite;
+}
+
+.windmill-center {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(45deg, #ffd700, #ff6b6b);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  z-index: 2;
+}
+
+.windmill-blade {
+  position: absolute;
+  width: 12px;
+  height: 45px;
+  top: 50%;
+  left: 50%;
+  transform-origin: center -5px;
+  border-radius: 6px;
+}
+
+.blade1 {
+  background: linear-gradient(to bottom, #ff6b6b, #ff8e8e);
+  transform: translateX(-50%) rotate(0deg);
+}
+
+.blade2 {
+  background: linear-gradient(to bottom, #4ecdc4, #45b7af);
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.blade3 {
+  background: linear-gradient(to bottom, #96c93d, #7ea832);
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.blade4 {
+  background: linear-gradient(to bottom, #a78bfa, #8b5cf6);
+  transform: translateX(-50%) rotate(270deg);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Add some cool effects on hover */
+.fancy-windmill:hover {
+  animation: spin 1s linear infinite;
+}
+
+/* Add a glow effect */
+.windmill-blade {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.fancy-windmill:hover .windmill-blade {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Add a pulsing effect to the center */
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.windmill-center {
+  animation: pulse 2s ease-in-out infinite;
+}
