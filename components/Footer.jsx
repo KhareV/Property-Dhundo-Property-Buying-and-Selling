@@ -28,7 +28,9 @@ const Footer = () => {
           {/* Logo & About */}
           <div className="col-span-1 md:col-span-1">
             {/* Increased logo size */}
-            <Image src={logo} alt="Logo" className="h-16 w-auto mb-4" />
+            <Link href="/">
+              <Image src={logo} alt="Logo" className="h-16 w-auto mb-4" />
+            </Link>
             <ColorfulWindmill />
             <p className="text-gray-400 text-sm mt-4">
               Your trusted partner in finding the perfect property. Discover
